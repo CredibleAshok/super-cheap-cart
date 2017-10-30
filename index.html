@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="myShopAppTest">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="angular.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="angular-ui-router.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="my-shop-app.js"></script>
+    <script src="main-controller.js"></script>
+
+    <style>
+        /* Remove the navbar's default rounded borders and increase the bottom margin */
+        .navbar {
+            margin-bottom: 50px;
+            border-radius: 0;
+        }
+
+        /* Remove the jumbotron's default bottom margin */
+        .jumbotron {
+            margin-bottom: 0;
+        }
+
+        /* Add a gray background color and some padding to the footer */
+        footer {
+            background-color: #f2f2f2;
+            padding: 25px;
+        }
+    </style>
+</head>
+<body ng-controller="mainController as vm">
+    <div class="container castshadow">
+        <div class="jumbotron">
+            <div class="container text-center">
+                <h1>dfg dfg{{vm.myitem}}</h1>
+                <p>Mission, Vission & Values</p>
+            </div>
+        </div>
+        <div class="row" ng-include="'header.html'">
+        </div>
+        <div class="row">
+            <ui-view></ui-view>
+        </div>
+        <div class="row">
+            <div ng-include="'footer.html'"></div>
+        </div>
+    </div>
+</body>
+</html>
