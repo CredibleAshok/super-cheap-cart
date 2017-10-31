@@ -4,11 +4,11 @@
         var ourStates = [{
             name: 'stores',
             url: '/stores',
-            templateUrl: 'products.html'
+            templateUrl: 'stores.html'
         },{
             name: 'products',
             url: '/products',
-            templateUrl: 'stores.html'
+            templateUrl: 'products.html'
         },{
             name: 'home',
             url: '/home',

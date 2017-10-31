@@ -43,7 +43,11 @@
         <div class="row" ng-include="'header.html'">
         </div>
         <div class="row">
-            <ui-view></ui-view>
+            <div class="col-sm-2" ng-include="'side_left.html'">
+            </div>
+            <div class="col-sm-10">
+                <ui-view></ui-view>
+            </div>
         </div>
         <div class="row">
             <div ng-include="'footer.html'"></div>
