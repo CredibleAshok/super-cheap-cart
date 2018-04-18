@@ -4,14 +4,14 @@
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.min.css"><!--latest-->
-    <script src="angular.min.js"></script><!--latest-->
-    <script src="jquery.min.js"></script><!--latest-->
-    <script src="angular-ui-router.min.js"></script><!--latest-->
-    <script src="bootstrap.min.js"></script><!--latest-->
+    <link rel="stylesheet" href="/common/bootstrap/bootstrap.min.css"><!--latest-->
+    <script src="/common/angular/angular.min.js"></script><!--latest-->
+    <script src="/common/jquery/jquery.min.js"></script><!--latest-->
+    <script src="/common/angular/angular-ui-router.min.js"></script><!--latest-->
+    <script src="/common/bootstrap/bootstrap.min.js"></script><!--latest-->
     <link rel="stylesheet" href="styles.css">
-    <script src="my-shop-app.js"></script>
-    <script src="main-controller.js"></script>
+    <script src="/app/my-shop-app.js"></script>
+    <script src="/app/main-controller.js"></script>
 
     <style>
         /* Remove the navbar's default rounded borders and increase the bottom margin */
@@ -40,17 +40,17 @@
                 <p>Mission, Vission & Values</p>
             </div>
         </div>
-        <div class="row" ng-include="'header.html'">
+        <div class="row" ng-include="'app/header.html'">
         </div>
         <div class="row">
-            <div class="col-sm-2" ng-include="'side_left.html'">
+            <div class="col-sm-2" ng-include="'app/side_left.html'">
             </div>
             <div class="col-sm-10">
                 <ui-view></ui-view>
             </div>
         </div>
         <div class="row">
-            <div ng-include="'footer.html'"></div>
+            <div ng-include="'app/footer.html'"></div>
         </div>
     </div>
 </body>
