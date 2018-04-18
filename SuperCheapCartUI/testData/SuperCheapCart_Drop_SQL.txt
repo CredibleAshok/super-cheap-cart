@@ -1,0 +1,23 @@
+﻿USE SuperCheapCart
+drop table brandCategory
+drop table deliveryType
+drop table discount
+drop table feature
+drop table [orderDetails]
+drop table [priceRange]
+drop table productIcon
+drop table stock
+drop table stockstatus
+drop table userprofile
+drop table userRole
+drop table [Address]
+drop table [order]
+drop table [orderStatus]
+drop table [product]
+drop table [role]
+drop table subcategory
+drop table users
+drop table brand
+drop table category
+drop table [packagesize]
+drop table [packageType]
