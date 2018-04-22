@@ -1,6 +1,6 @@
 (function () {
-    var mainController = myShopApp.controller('mainController', function () {
+    var mainController = myShopApp.controller('mainController', [function () {
         var vm = this;
-        vm.myitem = 10;
-    });
+        vm.myitem = "main controller";
+    }]);
 })();

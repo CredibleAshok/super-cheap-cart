@@ -1,27 +1,93 @@
-﻿                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-                                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-                                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="panel panel-danger">
-                                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-                                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-                            </div>
-                        </div>
-                    </div>
+﻿<div ng-controller="filtersController as vm">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Brands</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="brand in vm.brands">
+                        <input type="checkbox" value="brand.Name" ng-model="brand.selected" name="brand.BrandId" /> {{brand.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Categories</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="category in vm.categories">
+                        <input type="checkbox" value="category.Name" ng-model="category.selected" name="category.CategoryId" /> {{category.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Sub Category</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="subCategory in vm.subCategories">
+                        <input type="checkbox" value="subCategory.Name" ng-model="subCategory.selected" name="subCategory.SubCategoryId" /> {{subCategory.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Package Type</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="packageType in vm.packageTypes">
+                        <input type="checkbox" value="packageType.Name" ng-model="packageType.selected" name="packageType.PackageTypeId" /> {{packageType.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Package Size</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="packageSize in vm.packageSizes">
+                        <input type="checkbox" value="packageSize.Name" ng-model="packageSize.selected" name="packageSize.PackageSizeId" /> {{packageSize.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Price Range</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <input type="number" placeholder="Min" style="width:50px;" />
+                    To
+                    <input type="number" placeholder="Max" style="width:50px;"/>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-danger">
+                <div class="panel-heading">Delivery Type</div>
+                <div class="panel-body" style="max-height:200px; overflow-y:auto;">
+                    <p ng-repeat="deliveryType in vm.deliveryTypes">
+                        <input type="checkbox" value="deliveryType.Name" ng-model="deliveryType.selected" name="deliveryType.DeliveryTypeId" /> {{deliveryType.Name}}
+                    </p>
+                </div>
+                <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
+            </div>
+        </div>
+    </div>
+</div>

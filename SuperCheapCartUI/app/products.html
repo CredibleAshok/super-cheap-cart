@@ -1,46 +1,55 @@
-﻿<div class="row">
-    <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+﻿<div ng-controller="productsController as vm">
+    <!--<p>rows would  be {{vm.rows.length}} and product count is {{vm.samplep.length}} and number is {{vm.tot}}</p>-->
+    <div class="row">
+        <div class="col-sm-2" ng-repeat="product in vm.products">
+            <div class="panel panel-primary"  ng-mouseover="vm.showButton(product.ProductId)" ng-mouseleave="vm.hideButton(product.ProductId)">
+                <!--<div class="panel-heading">{{product.Name}}</div>-->
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
+                <div class="panel-footer">
+                    <!--if you are including a page itself, this page will have its own controller, if you want shared items then create a directive -->
+                    <!--<p><div ng-include="'app/controls/addToCart.html'"></div></p>-->
+                    <p>{{product.Name}}</p>
+                    <p style="text-align:center;"><b>{{vm.currencyCode}}{{product.Price}}</b></p>
+                    <p><button name="btn{{product.ProductId}}" ng-click="vm.addToCart(product)" style="display:none;">Add To Cart</button></p>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-danger">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <!--<div class="col-sm-4">
+            <div class="panel panel-danger">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
         </div>
+        <div class="col-sm-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
+        </div>-->
     </div>
-    <div class="col-sm-4">
-        <div class="panel panel-success">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="panel panel-primary">
-            <div class="panel-heading">BLACK FRIDAY DEAL</div>
-            <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
-            <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+        <div class="col-sm-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading">BLACK FRIDAY DEAL</div>
+                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image"></div>
+                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+            </div>
         </div>
     </div>
 </div>

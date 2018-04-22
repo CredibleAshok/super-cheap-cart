@@ -1,5 +1,5 @@
 (function () {
-    myShopApp = angular.module('myShopAppTest', ['ui.router']);
+    myShopApp = angular.module('myShopAppTest', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui.router']);
     var configFunction = function ($stateProvider) {
         var ourStates = [{
             name: 'stores',
@@ -8,7 +8,7 @@
         }, {
             name: 'products',
             url: '/products',
-            templateUrl: 'products.html'
+            templateUrl: 'app/products.html'
         }, {
             name: 'home',
             url: '/home',
