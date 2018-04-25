@@ -1,0 +1,205 @@
+﻿<div ng-controller="checkoutController as vm">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="userLoignHeading">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseUserLoign" aria-expanded="true" aria-controls="collapseUserLoign">
+                        User login
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseUserLoign" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="userLoignHeading">
+                <div class="panel-body">
+                    <form id="checkoutForm">
+                        <div class="panel-heading">Choose Your Account Type</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4" ng-repeat="accountType in vm.user.accountTypes">
+                                    <label>{{accountType.Name}} <input type="radio" name="accountType.accountTypeId" ng-click="vm.openLoginForm(accountType.accountTypeId)" /></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer" style="text-align:left;">
+                            <span>{{vm.user.account.Name}}</span>
+                        </div>
+                        <div ng-if="vm.user.account.accountTypeId==1">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3">User Name</div>
+                                    <div class="col-sm-4"><input type="text" ng-model="vm.user.Name" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Password</div>
+                                    <div class="col-sm-4"><input type="password" ng-model="vm.user.Password" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Login</button>
+                            </div>
+                        </div>
+                        <div ng-if="vm.user.account.accountTypeId==2">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3">User Name</div>
+                                    <div class="col-sm-4"><input type="text" ng-model="vm.user.Name" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Password</div>
+                                    <div class="col-sm-4"><input type="password" ng-model="vm.user.Password" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3"><span ng-class="{'has-error-custom-span':vm.passwordValidated!= true}">Confirm Password</span></div>
+                                    <div class="col-sm-4"><input type="password" ng-model="vm.user.ConfirmPassword" ng-class="{'has-error-custom':vm.passwordValidated!= true}" ng-change="vm.validateSamePassword(vm.user.Password,vm.user.ConfirmPassword)" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Email</div>
+                                    <div class="col-sm-4"><input type="email" ng-model="vm.user.Email" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Mobile</div>
+                                    <div class="col-sm-4"><input type="tel" ng-model="vm.user.MobileNumber" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Login</button>
+                            </div>
+                        </div>
+                        <div ng-if="vm.user.account.accountTypeId==3">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3">Name</div>
+                                    <div class="col-sm-4"><input type="text" ng-model="vm.user.Name" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Email</div>
+                                    <div class="col-sm-4"><input type="email" ng-model="vm.user.Email" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">Mobile</div>
+                                    <div class="col-sm-4"><input type="tel" ng-model="vm.user.MobileNumber" /></div>
+                                    <div class="col-sm-5"></div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingDeliveryAddress">
+                <h4 class="panel-title">
+                    <a role="button" ng-if="vm.userLoginAuthenticated" data-toggle="collapse" data-parent="#accordion" href="#collapseHeadingDeliveryAddress" aria-expanded="true" aria-controls="collapseOne">
+                        Delivery Address
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseHeadingDeliveryAddress" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-heading">Update / Enter your Delivery Address</div>
+                <div class="panel-body">
+                    <div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <table>
+                                    <tr ng-repeat="address in vm.user.AddressList">
+                                        <td class="col-sm-10">{{address.Name}}, Mobile Number {{address.MobileNumber}}, {{address.AddressLine1}}, {{address.AddressLine2}}, {{address.City}}, {{address.State}}, , {{address.PostCode}}</td>
+                                        <td class="col-sm-2"><button ng-click="vm.useThisAddress()">Use This</button><button ng-click="vm.editThisAddress()">Edit This</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Full Name</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.Name" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Mobile Number</div>
+                                <div class="col-sm-4"><input type="tel" ng-model="vm.user.MobileNumber" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Pin Code / PostCode</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.PostCode" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Address Line 1</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.AddressLine1" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Address Line 2</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.AddressLine1" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Land Marks</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.LandMarks" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">City</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.LandMarks" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">State</div>
+                                <div class="col-sm-4"><input type="text" ng-model="vm.user.LandMarks" /></div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">Address Type</div>
+                                <div class="col-sm-4">
+                                    drop down
+                                </div>
+                                <div class="col-sm-5"></div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Proceed To Payment Option</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                    <a class="collapsed" ng-if="false" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Order Summary
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                    <a class="collapsed" role="button" ng-if="false" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Payment Options
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

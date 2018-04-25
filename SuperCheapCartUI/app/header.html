@@ -18,7 +18,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-                <li><a ng-click="vm.showCart()"><span class="glyphicon glyphicon-shopping-cart"></span> CartOne {{vm.numberOfItemsInCart}}</a></li>
+                <li>
+                    <button class="btn btn-primary" type="button" ng-click="vm.showCart()">
+                        Cart <span class="badge">{{vm.numberOfItemsInCart}}</span>
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
