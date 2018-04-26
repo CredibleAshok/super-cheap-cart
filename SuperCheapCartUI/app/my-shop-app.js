@@ -13,6 +13,11 @@
             name: 'home',
             url: '/home',
             templateUrl: 'home.html'
+        }, {
+            name: 'productsByCategory',
+            url: '/products/category',
+            templateUrl: 'app/products.html'
+            
         }];
         for (var i = 0; i < ourStates.length; i++) {
             $stateProvider.state(ourStates[i]);
