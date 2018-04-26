@@ -11,6 +11,33 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a ui-sref="home">Home</a></li>
+                <li>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Browse By Categories
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="category in vm.categories" class="dropdown-submenu" ng-mouseover="vm.getSubcategoriesByCategoryId(category.CategoryId)">
+                            <a ui-sref="productsByCategory" class="dropdown-toggle" data-toggle="dropdown">{{category.Name}}<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <div>
+                                    <div style="float:left;">
+                                        <li ng-repeat="subCategory in vm.subcategoriesByCategoryId">
+                                            <a ui-sref="productsBySubCategory">{{subCategory.Name}}</a>
+                                        </li>
+                                    </div>
+                                    <div style="text-align:right; float:left; border-left: 1px solid black;">
+                                        <span>Top Brands</span><br />
+                                        <li ng-repeat="brand in vm.brands"><!--todo: filter only brands which are available for these sub categories.-->
+                                            <a ui-sref="productsBySubCategory">{{brand.Name}}</a>
+                                        </li>
+                                    </div>
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">Products Test</a></li>
                 <li><a ui-sref="products">Products</a></li>
                 <li><a ui-sref="deals">Deals</a></li>
                 <li><a ui-sref="stores">Stores</a></li>
