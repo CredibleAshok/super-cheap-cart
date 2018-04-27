@@ -98,22 +98,54 @@
         vm.packageSizes = [
             {
                 "PackageSizeId": 1,
-                "Name": "100gm - 200gm"
+                "Name": "100gm - 200gm",
+                "selected": false
             },
             {
                 "PackageSizeId": 2,
-                "Name": "200gm - 300gm"
+                "Name": "200gm - 300gm",
+                "selected": false
             }
         ];
         vm.deliveryTypes = [
             {
                 "DeliveryTypeId": 1,
-                "Name": "Standard"
+                "Name": "Standard",
+                "selected": false
             },
             {
                 "DeliveryTypeId": 2,
-                "Name": "Express"
+                "Name": "Express",
+                "selected": false
             }
         ];
+        vm.productFilter = {};
+        vm.productFilter.deliveryTypeFilter = [];
+        vm.productFilter.packagesizeFilter = [];
+        vm.setProductsFilter = function (filterType, selectionType, filterId) {
+            
+            switch (filterType) {
+                case "deliveryType": {
+                    if (selectionType) {
+                        vm.productFilter.deliveryTypeFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.deliveryTypeFilter.indexOf(filterId);
+                        vm.productFilter.deliveryTypeFilter.splice(itemTobeRemoved,1);
+                    }
+                    break;
+                }
+                case "packagesize": {
+                    if (selectionType) {
+                        vm.productFilter.packagesizeFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.packagesizeFilter.indexOf(filterId);
+                        vm.productFilter.packagesizeFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                }
+            }
+            console.log("items in deliveryTypeFilter are:- " + vm.productFilter.deliveryTypeFilter.length);
+            console.log("items in packagesizeFilter are:- " + vm.productFilter.packagesizeFilter.length);
+        }
     });
 })();

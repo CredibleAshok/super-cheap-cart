@@ -20,16 +20,18 @@
                         <li ng-repeat="category in vm.categories" class="dropdown-submenu" ng-mouseover="vm.getSubcategoriesByCategoryId(category.CategoryId)">
                             <a ui-sref="productsByCategory" class="dropdown-toggle" data-toggle="dropdown">{{category.Name}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <div>
-                                    <div style="float:left;">
+                                <div style="float:left; width:300px;">
+                                    <div style="float:left; width:50%;">
+                                        <span>Sub Categories</span><br />
                                         <li ng-repeat="subCategory in vm.subcategoriesByCategoryId">
                                             <a ui-sref="productsBySubCategory">{{subCategory.Name}}</a>
                                         </li>
                                     </div>
-                                    <div style="text-align:right; float:left; border-left: 1px solid black;">
+                                    <div style="float:left; width:50%; border-left: 1px solid black; padding-left:20px;">
                                         <span>Top Brands</span><br />
-                                        <li ng-repeat="brand in vm.brands"><!--todo: filter only brands which are available for these sub categories.-->
-                                            <a ui-sref="productsBySubCategory">{{brand.Name}}</a>
+                                        <li ng-repeat="brand in vm.brands">
+                                            <!--todo: filter only brands which are available for these sub categories.-->
+                                            <a ui-sref="productsBySubCategoryAndBrand">{{brand.Name}}</a>
                                         </li>
                                     </div>
                                 </div>

@@ -12,7 +12,7 @@
         }, {
             name: 'home',
             url: '/home',
-            templateUrl: 'home.html'
+            templateUrl: 'app/home.html'
         }, {
             name: 'productsByCategory',
             url: '/products/category',

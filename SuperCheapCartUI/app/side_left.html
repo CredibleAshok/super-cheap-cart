@@ -5,7 +5,9 @@
                 <div class="panel-heading">Brands</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="brand in vm.brands">
-                        <input type="checkbox" value="brand.Name" ng-model="brand.selected" name="brand.BrandId" /> {{brand.Name}}
+                        <label>
+                            <input type="checkbox" ng-model="brand.selected" name="brand.BrandId" /> {{brand.Name}}
+                        </label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
@@ -18,7 +20,9 @@
                 <div class="panel-heading">Categories</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="category in vm.categories">
-                        <input type="checkbox" value="category.Name" ng-model="category.selected" name="category.CategoryId" /> {{category.Name}}
+                        <label>
+                            <input type="checkbox" ng-model="category.selected" name="category.CategoryId" /> {{category.Name}}
+                        </label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
@@ -31,7 +35,9 @@
                 <div class="panel-heading">Sub Category</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="subCategory in vm.subCategories">
-                        <input type="checkbox" value="subCategory.Name" ng-model="subCategory.selected" name="subCategory.SubCategoryId" /> {{subCategory.Name}}
+                        <label>
+                            <input type="checkbox" ng-model="subCategory.selected" name="subCategory.SubCategoryId" /> {{subCategory.Name}}
+                        </label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
@@ -44,7 +50,9 @@
                 <div class="panel-heading">Package Type</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="packageType in vm.packageTypes">
-                        <input type="checkbox" value="packageType.Name" ng-model="packageType.selected" name="packageType.PackageTypeId" /> {{packageType.Name}}
+                        <label>
+                            <input type="checkbox" ng-model="packageType.selected" name="packageType.PackageTypeId" /> {{packageType.Name}}
+                        </label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
@@ -57,7 +65,9 @@
                 <div class="panel-heading">Package Size</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="packageSize in vm.packageSizes">
-                        <input type="checkbox" value="packageSize.Name" ng-model="packageSize.selected" name="packageSize.PackageSizeId" /> {{packageSize.Name}}
+                        <label>
+                            <input type="checkbox" name="packageSize.PackageSizeId" ng-model="packageSize.selected" ng-click="vm.setProductsFilter('packagesize', packagesize.selected, packageSize.PackageSizeId)" /> {{packageSize.Name}}
+                        </label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
@@ -71,7 +81,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <input type="number" placeholder="Min" style="width:50px;" />
                     To
-                    <input type="number" placeholder="Max" style="width:50px;"/>
+                    <input type="number" placeholder="Max" style="width:50px;" />
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
             </div>
@@ -83,7 +93,7 @@
                 <div class="panel-heading">Delivery Type</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="deliveryType in vm.deliveryTypes">
-                        <input type="checkbox" value="deliveryType.Name" ng-model="deliveryType.selected" name="deliveryType.DeliveryTypeId" /> {{deliveryType.Name}}
+                        <label><input type="checkbox" value="deliveryType.Name" ng-model="deliveryType.selected" name="deliveryType.DeliveryTypeId" ng-change="vm.setProductsFilter('deliveryType', deliveryType.selected, deliveryType.DeliveryTypeId)" /> {{deliveryType.Name}}</label>
                     </p>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->

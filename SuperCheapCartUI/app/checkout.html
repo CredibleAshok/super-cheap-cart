@@ -158,18 +158,37 @@
                                 <div class="col-sm-4"><input type="text" ng-model="vm.user.LandMarks" /></div>
                                 <div class="col-sm-5"></div>
                             </div>
-                            <div class="row">
+                            <!--<div class="row">
                                 <div class="col-sm-3">Address Type</div>
                                 <div class="col-sm-4">
                                     drop down
                                 </div>
                                 <div class="col-sm-5"></div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="panel-footer">
                             <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Proceed To Payment Option</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingChooseDeliveryType">
+                <h4 class="panel-title">
+                    <a class="collapsed" ng-if="false" role="button" data-toggle="collapse" data-parent="#accordion" href="#headingChooseDeliveryType" aria-expanded="false" aria-controls="collapseTwo">
+                        Choose Delivery Type
+                    </a>
+                </h4>
+            </div>
+            <div id="headingChooseDeliveryType" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingChooseDeliveryType">
+                <div class="panel-body">
+                    <label ng-repeat="deliveryType in vm.deliveryType">
+                        <input type="radio" name="deliveryType" ng-model="vm.deliveryType" value="deliveryType.Name" />{{deliveryType.Name}}
+                    </label>
+                </div>
+                <div class="panel-footer">
+                    <button ng-click="vm.authenticateUser(vm.user,vm.user.accountType)">Proceed To Payment Option</button>
                 </div>
             </div>
         </div>

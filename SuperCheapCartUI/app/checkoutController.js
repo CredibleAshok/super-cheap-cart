@@ -13,6 +13,14 @@
             { "accountTypeId": 2, "Name": "Not Registered" },
             { "accountTypeId": 3, "Name": "Guest Login" }
         ]
+
+        vm.deliveryType = [{
+            "DeliveryTypeId": 1,
+            "Name": "Standard"
+        }, {
+            "DeliveryTypeId": 2,
+            "Name": "Express"
+        }];
         
         vm.openLoginForm = function (accountType) {
             vm.user.accountType = accountType;
