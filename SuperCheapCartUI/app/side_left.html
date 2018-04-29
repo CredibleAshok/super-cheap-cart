@@ -6,7 +6,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="brand in vm.brands">
                         <label>
-                            <input type="checkbox" ng-model="brand.selected" name="brand.BrandId" /> {{brand.Name}}
+                            <input type="checkbox" ng-model="brand.selected" name="brand.BrandId" ng-click="vm.setProductsFilter('brand', brand.selected, brand.BrandId)"/> {{brand.Name}}
                         </label>
                     </p>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="category in vm.categories">
                         <label>
-                            <input type="checkbox" ng-model="category.selected" name="category.CategoryId" /> {{category.Name}}
+                            <input type="checkbox" ng-model="category.selected" name="category.CategoryId" ng-click="vm.setProductsFilter('category', category.selected, category.CategoryId)"/> {{category.Name}}
                         </label>
                     </p>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="subCategory in vm.subCategories">
                         <label>
-                            <input type="checkbox" ng-model="subCategory.selected" name="subCategory.SubCategoryId" /> {{subCategory.Name}}
+                            <input type="checkbox" ng-model="subCategory.selected" name="subCategory.SubCategoryId"  ng-click="vm.setProductsFilter('subCategory', subCategory.selected, subCategory.SubCategoryId)" /> {{subCategory.Name}}
                         </label>
                     </p>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="packageType in vm.packageTypes">
                         <label>
-                            <input type="checkbox" ng-model="packageType.selected" name="packageType.PackageTypeId" /> {{packageType.Name}}
+                            <input type="checkbox" ng-model="packageType.selected" name="packageType.PackageTypeId" ng-click="vm.setProductsFilter('packageType', packageType.selected, packageType.PackageTypeId)" /> {{packageType.Name}}
                         </label>
                     </p>
                 </div>
@@ -66,7 +66,7 @@
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
                     <p ng-repeat="packageSize in vm.packageSizes">
                         <label>
-                            <input type="checkbox" name="packageSize.PackageSizeId" ng-model="packageSize.selected" ng-click="vm.setProductsFilter('packagesize', packageSize.selected, packageSize.PackageSizeId)" /> {{packageSize.Name}}
+                            <input type="checkbox" name="packageSize.PackageSizeId" ng-model="packageSize.selected" ng-click="vm.setProductsFilter('packageSize', packageSize.selected, packageSize.PackageSizeId)" /> {{packageSize.Name}}
                         </label>
                     </p>
                 </div>
@@ -79,9 +79,9 @@
             <div class="panel panel-danger">
                 <div class="panel-heading">Price Range</div>
                 <div class="panel-body" style="max-height:200px; overflow-y:auto;">
-                    <input type="number" placeholder="Min" style="width:50px;" />
+                    <input type="number" placeholder="Min" style="width:50px;" ng-model="vm.priceRangeMin" ng-change="vm.setProductsFilter('priceRange', vm.priceRangeMin)" />
                     To
-                    <input type="number" placeholder="Max" style="width:50px;" />
+                    <input type="number" placeholder="Max" style="width:50px;" ng-model="vm.priceRangeMax"  ng-change="vm.setProductsFilter('priceRange', vm.priceRangeMax)"/>
                 </div>
                 <!--<div class="panel-footer">Buy 50 mobiles and get a gift card</div>-->
             </div>

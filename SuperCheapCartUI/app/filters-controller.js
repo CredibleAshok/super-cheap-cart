@@ -122,6 +122,11 @@
         vm.productFilter = {};
         vm.productFilter.deliveryTypeFilter = [];
         vm.productFilter.packagesizeFilter = [];
+        vm.productFilter.packageTypeFilter = [];
+        vm.productFilter.subCategoryFilter = [];
+        vm.productFilter.categoryFilter = [];
+        vm.productFilter.brandFilter = [];
+
         vm.setProductsFilter = function (filterType, selectionType, filterId) {
             
             switch (filterType) {
@@ -134,7 +139,7 @@
                     }
                     break;
                 }
-                case "packagesize": {
+                case "packageSize": {
                     if (selectionType) {
                         vm.productFilter.packagesizeFilter.push(filterId);
                     } else {
@@ -142,10 +147,85 @@
                         vm.productFilter.packagesizeFilter.splice(itemTobeRemoved, 1);
                     }
                     break;
-                }
+                } case "packageType": {
+                    if (selectionType) {
+                        vm.productFilter.packageTypeFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.packageTypeFilter.indexOf(filterId);
+                        vm.productFilter.packageTypeFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "subCategory": {
+                    if (selectionType) {
+                        vm.productFilter.subCategoryFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.subCategoryFilter.indexOf(filterId);
+                        vm.productFilter.subCategoryFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "category": {
+                    if (selectionType) {
+                        vm.productFilter.categoryFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.categoryFilter.indexOf(filterId);
+                        vm.productFilter.categoryFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "brand": {
+                    if (selectionType) {
+                        vm.productFilter.brandFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.brandFilter.indexOf(filterId);
+                        vm.productFilter.brandFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "subCategory": {
+                    if (selectionType) {
+                        vm.productFilter.subCategoryFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.subCategoryFilter.indexOf(filterId);
+                        vm.productFilter.subCategoryFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "category": {
+                    if (selectionType) {
+                        vm.productFilter.categoryFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.categoryFilter.indexOf(filterId);
+                        vm.productFilter.categoryFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "brand": {
+                    if (selectionType) {
+                        vm.productFilter.brandFilter.push(filterId);
+                    } else {
+                        var itemTobeRemoved = vm.productFilter.brandFilter.indexOf(filterId);
+                        vm.productFilter.brandFilter.splice(itemTobeRemoved, 1);
+                    }
+                    break;
+                } case "priceRange": {
+                    vm.productFilter.priceRangeMin = vm.priceRangeMin;
+                    vm.productFilter.priceRangeMax = vm.priceRangeMax;
+                    break;
+                } 
+                default:
+                    console.log("default called.");
+                    break;
             }
-            console.log("items in deliveryTypeFilter are:- " + vm.productFilter.deliveryTypeFilter.length);
-            console.log("items in packagesizeFilter are:- " + vm.productFilter.packagesizeFilter.length);
+            vm.showFilterStatus(vm.productFilter);
+        }
+
+        vm.showFilterStatus = function (productFilter) {
+            console.log("items in deliveryTypeFilter are:- " + productFilter.deliveryTypeFilter.length);
+            console.log("items in packagesizeFilter are:- " + productFilter.packagesizeFilter.length);
+            console.log("items in packageTypeFilter are:- " + productFilter.packageTypeFilter.length);
+            console.log("items in subCategoryFilter are:- " + productFilter.subCategoryFilter.length);
+            console.log("items in categoryFilter are:- " + productFilter.categoryFilter.length);
+            console.log("items in brandFilter are:- " + productFilter.brandFilter.length);
+            console.log("items in priceRangeMin are:- " + productFilter.priceRangeMin);
+            console.log("items in priceRangeMax are:- " + productFilter.priceRangeMax);
+            
+            console.log("------------------------ ");
         }
     });
 })();

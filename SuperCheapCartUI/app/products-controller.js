@@ -1,8 +1,15 @@
 ﻿(function () {
-    var productsController = myShopApp.controller('productsController', ['cartService', function (cartService) {
+    var productsController = myShopApp.controller('productsController', ['$scope', 'cartService', function ($scope, cartService) {
         var vm = this;
         vm.myitem = 10;
-
+        vm.sortOrders = [{ "sortOrderId": 1, "Name": "Price Low to High" },
+        { "sortOrderId": 2, "Name": "Price High to Low" },
+        { "sortOrderId": 3, "Name": "By Relevence" }];
+        $scope.$watch('vm.sortOrder', function (newVal, oldVal) {
+            if (newVal != undefined) {
+                //console.log("selected value is:- " + newVal.Name);
+            }
+        })
         vm.products = [
             {
                 "ProductId": 1,

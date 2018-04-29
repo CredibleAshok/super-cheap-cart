@@ -1,6 +1,22 @@
 ﻿<div ng-controller="productsController as vm">
     <!--<p>rows would  be {{vm.rows.length}} and product count is {{vm.samplep.length}} and number is {{vm.tot}}</p>-->
     <div class="row">
+        <div class="col-sm-2">
+            <button ng-click="vm.applyFilters()"></button>
+        </div>
+        <div class="col-sm-7"></div>
+        <div class="col-sm-3">
+            <ui-select ng-model="vm.sortOrder">
+                <ui-select-match>
+                    <span ng-bind="$select.selected.Name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item in (vm.sortOrders | filter: $select.search) track by item.sortOrderId">
+                    <span ng-bind="item.Name"></span>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-sm-2" ng-repeat="product in vm.products">
             <div class="panel panel-primary"  ng-mouseover="vm.showButton(product.ProductId)" ng-mouseleave="vm.hideButton(product.ProductId)">
                 <!--<div class="panel-heading">{{product.Name}}</div>-->
@@ -14,20 +30,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col-sm-4">
-            <div class="panel panel-danger">
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="panel panel-success">
-                <div class="panel-heading">BLACK FRIDAY DEAL</div>
-                <div class="panel-body"><img src="https://placehold.it/50x50?text=IMAGE" class="img-responsive" alt="Image" style="width:100%;"></div>
-                <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
-            </div>
-        </div>-->
     </div>
     <div class="row">
         <div class="col-sm-4">

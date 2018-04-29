@@ -1,5 +1,5 @@
 (function () {
-    myShopApp = angular.module('myShopAppTest', ['ngAnimate', 'ngSanitize', 'ui.bootstrap','ui.router']);
+    myShopApp = angular.module('myShopAppTest', ['ngAnimate', 'ngSanitize', 'ui.bootstrap', 'ui.router', 'ui.select']);
     var configFunction = function ($stateProvider) {
         var ourStates = [{
             name: 'stores',
